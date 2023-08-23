@@ -1,0 +1,19 @@
+<section appWrap>
+  <app-read basis="100" label="formatted" [value]="now | timestamp"></app-read>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button color="primary" (click)="onSpin()">spin</button>
+  </div>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button color="accent" (click)="onSnack()">snack</button>
+  </div>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button color="primary" *ngIf="!loading" (click)="onLoad()">load</button>
+    <app-load appMargin appGrow *ngIf="loading" [height]="36"></app-load>
+  </div>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button color="accent" (click)="onInfo()">info</button>
+  </div>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button color="primary" (click)="onConfirm()">confirm</button>
+  </div>
+</section>

@@ -1,0 +1,7 @@
+<mat-list-item (click)="click()">
+  <mat-icon mat-list-icon *ngIf="active();else inactive" color="primary">chevron_right</mat-icon>
+  <ng-template #inactive>
+    <mat-icon mat-list-icon color="accent">expand_more</mat-icon>
+  </ng-template>
+  {{routeName}}
+</mat-list-item>

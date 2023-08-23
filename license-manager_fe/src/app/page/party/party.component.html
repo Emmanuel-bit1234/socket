@@ -1,0 +1,38 @@
+<ng-container *ngIf="core.$user | async">
+  <mat-toolbar>
+    party
+    <span appStretch></span>
+    <app-buttons>
+      <ng-container *ngIf="!data">
+        <button mat-icon-button (click)="onCreate()" color="primary" matTooltip="create">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onSearch()" color="accent" matTooltip="search">
+          <mat-icon>search</mat-icon>
+        </button>
+      </ng-container>
+      <ng-container *ngIf="data">
+        <button mat-raised-button (click)="onRead(data.id)" color="primary">
+          read
+        </button>
+        <button mat-raised-button (click)="onUpdate(data)" color="primary">
+          update
+        </button>
+        <button mat-icon-button (click)="onDelete(data.id)" color="accent" matTooltip="delete">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onReset()" color="primary" matTooltip="reset">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </ng-container>
+    </app-buttons>
+  </mat-toolbar>
+  <section *ngIf="data" appWrap>
+    <app-read label="id" [value]="data.id"></app-read>
+    <app-read label="name" [value]="data.fullname"></app-read>
+    <app-read label="surname" [value]="data.surname"></app-read>
+    <app-read label="id number" [value]="data.idNumber"></app-read>
+    <app-read label="fingerprinted" [value]="data.fingerprinted ? 'yes' : 'no'"></app-read>
+    <app-read label="updated " [value]="data.updated | timestamp"></app-read>
+  </section>
+</ng-container>

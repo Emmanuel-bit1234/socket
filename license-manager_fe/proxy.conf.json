@@ -1,0 +1,42 @@
+{
+  "/shared/api": {
+    "target": "http://10.124.156.185:8001",
+    "secure": false
+  },
+  "/enrolment/api": {
+    "target": "http://10.124.156.185:8001",
+    "secure": false
+  },
+  "/beneficiary/api": {
+    "target": "http://10.124.156.185:8001",
+    "secure": false
+  },
+  "/nonrepudiation/api": {
+    "target": "http://10.124.156.185:8001",
+    "secure": false
+  },
+  "/license/api": {
+    "target": "http://10.124.156.185:8001",
+    "secure": false
+  },
+  "/doc/api": {
+    "target": "http://10.124.156.185:8001",
+    "secure": false
+  },
+  "protow/api": {
+    "target": "http://127.0.0.1:49080",
+    "secure": false,
+    "ws": true
+  },
+   "/GetToken": {
+    "target": "http://devdashboard.sassa.gov.za",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/oauth2": {
+    "target": "http://biamdvohsshc01.sassa.local:7777",
+    "secure": false,
+    "logLevel": "info",
+    "changeOrigin": true
+  }
+}

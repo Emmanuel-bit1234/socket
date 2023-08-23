@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: flex-end;
+
+  ::ng-deep .mat-button,
+  ::ng-deep .mat-raised-button,
+  ::ng-deep .mat-stroked-button,
+  ::ng-deep .mat-flat-button {
+    margin-right: 10px;
+  }
+
+  ::ng-deep .mat-button:last-child,
+  ::ng-deep .mat-raised-button:last-child,
+  ::ng-deep .mat-stroked-button:last-child,
+  ::ng-deep .mat-flat-button:last-child {
+    margin-right: 0;
+  }
+}

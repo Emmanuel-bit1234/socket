@@ -1,0 +1,34 @@
+<section appWrap>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button (click)="onVersion()" color="primary">version</button>
+  </div>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button (click)="onScanFinger()" color="accent">scan</button>
+  </div>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button (click)="onPublicKey()" color="primary">key</button>
+  </div>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button (click)="onLockFingers()" color="accent">lock</button>
+  </div>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button (click)="onSignMessage()" color="primary">sign</button>
+  </div>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button (click)="onEnrolFinger()" color="accent">enrol</button>
+  </div>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button (click)="onMatchFinger()" color="primary">match</button>
+  </div>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button (click)="onTemplate()" color="accent">template</button>
+  </div>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button (click)="onImage()" color="primary">image</button>
+  </div>
+  <div appFlex>
+    <button appMargin appGrow mat-raised-button (click)="onConvertImage()" color="accent">convert</button>
+  </div>
+</section>
+<app-read *ngIf="result" [label]="result.label" [value]="result.value"></app-read>
+<img *ngIf="result && result.image" [src]="'data:image/' + result.value + ';base64,' + result.image"/>

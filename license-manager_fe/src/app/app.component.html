@@ -1,0 +1,26 @@
+<mat-toolbar *ngIf="core.user" color="primary" class="mat-elevation-z2" [style.z-index]="2">
+  <button mat-button (click)="sideNav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  License Manager
+  <span [style.flex-grow]="1"></span>
+  <button mat-button (click)="toggleTheme()">
+    <mat-icon>format_color_fill</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-sidenav-container [style.flex]="1">
+  <mat-sidenav *ngIf="core.user" [mode]="handset ? 'over' : 'side'" class="mat-elevation-z1"
+               [fixedTopGap]="56" [fixedInViewport]="handset" [opened]="!handset" [style.width.px]="140">
+    <mat-nav-list>
+      <!-- <app-link id="challenge" routeName="challenge" path="connect"  (close)="sideNav.close()"> </app-link>
+      <app-link id="about" path="about" routeName="about" (close)="sideNav.close()"></app-link> -->
+      <mat-list-item  (click)="logout()">
+        <mat-icon id="logout" mat-list-icon color="warn">chevron_left</mat-icon>
+        logout
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

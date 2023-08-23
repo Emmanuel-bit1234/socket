@@ -1,0 +1,26 @@
+<!-- <mat-card *ngIf="!(core.$user | async)" [style.align-self]="(core.$handsetObserver | async) ? 'stretch' : null">
+  <mat-card-title-group>
+    <mat-card-title>License Manager</mat-card-title>
+    <mat-card-subtitle>login</mat-card-subtitle>
+    <img mat-card-avatar src="assets/logo.png">
+  </mat-card-title-group>
+  <mat-card-content [formGroup]="form" (keydown.enter)="form.valid && onSubmit()" appWrap wrapMargin="0">
+    <div appFlex basis="100">
+      <mat-form-field appearance="outline" appGrow growMargin="0">
+        <mat-label>username</mat-label>
+        <input id="username" matInput formControlName="username" autocomplete="off">
+      </mat-form-field>
+    </div>
+    <div appFlex basis="100">
+      <mat-form-field appearance="outline" appGrow growMargin="0">
+        <mat-label>password</mat-label>
+        <input id="password" matInput type="password" formControlName="password" autocomplete="off">
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+  <app-buttons>
+    <button id="loginSubmit" mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSubmit()">
+      submit
+    </button>
+  </app-buttons>
+</mat-card> -->

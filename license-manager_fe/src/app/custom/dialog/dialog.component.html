@@ -1,0 +1,10 @@
+<h2 mat-dialog-title *ngIf="data.title">{{data.title}}</h2>
+<mat-dialog-content mat-dialog-content *ngIf="data.content" class="mat-body-1">{{data.content}}</mat-dialog-content>
+<mat-dialog-actions *ngIf="data.confirm" align="end">
+  <button mat-raised-button (click)="ref.close(false)" *ngIf="data.confirm.reject" color="accent">
+    {{data.confirm.reject}}
+  </button>
+  <button mat-raised-button (click)="ref.close(true)" *ngIf="data.confirm.confirm" color="primary">
+    {{data.confirm.confirm}}
+  </button>
+</mat-dialog-actions>

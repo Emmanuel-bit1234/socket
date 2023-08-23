@@ -1,0 +1,90 @@
+<mat-toolbar>
+  License Manager
+  <span appStretch></span>
+</mat-toolbar>
+<section [formGroup]="form" appWrap >
+  <div appFlex basis="100">
+    <mat-form-field appearance="outline" appGrow *ngIf="$regions | async as regions;else loadingRegions">
+      <mat-label>region</mat-label>
+      <mat-select formControlName="region" (ngModelChange)="regionChange($event)">
+        <mat-option *ngFor="let region of regions" [value]="region">{{region.value}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <ng-template #loadingRegions>
+      <app-load appGrow></app-load>
+    </ng-template>
+  </div>
+  <div appFlex basis="100">
+    <mat-form-field appearance="outline" appGrow *ngIf="$districts | async as districts;">
+      <mat-label>district</mat-label>
+      <mat-select formControlName="district" (ngModelChange)="districtChange($event)">
+        <mat-option *ngFor="let district of districts" [value]="district">{{district.value}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div appFlex basis="100">
+    <mat-form-field appearance="outline" appGrow *ngIf="$branches | async as branches;">
+      <mat-label>branch</mat-label>
+      <mat-select formControlName="branch" (ngModelChange)="branchChange($event)">
+        <mat-option *ngFor="let branch of branches" [value]="branch">{{branch.value}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div appFlex basis="100" >
+    <mat-form-field appearance="outline" appGrow>
+      <mat-label>domain user</mat-label>
+      <input matInput formControlName="domainUser">
+      <!-- <input matInput formControlName="domainUser" (ngModelChange)="validateDomainUser($event)"  [errorStateMatcher]="errorMatcher"> -->
+      <!-- <mat-error *ngIf="domainUserValidator()">
+        Domain user can't match the logged in user!
+      </mat-error> -->
+      <!-- <mat-error *ngIf="!domainUserExists">Domain User doesn't exist</mat-error> -->
+    </mat-form-field>
+  </div>
+  
+
+  <label class="label">Please enter the License Serial Key used to activate the current client license on this PC</label>
+  <div appFlex  basis="100">
+    <mat-form-field appearance="outline" appGrow>
+      <mat-label>Serial License Key</mat-label>
+      <input  (change)="licenseKeyChange($event)" matInput formControlName="LicenseKey">
+    </mat-form-field>
+    <mat-checkbox formControlName="serialKeyCheckBox" (change)="serialLicenseKeyChange($event)">No Serial License Key</mat-checkbox>
+  </div>
+  <div appFlex  basis="100">
+    <label class="label" style="font-weight: bold;">OR</label>
+  </div>
+  <div appFlex  basis="100">
+    <label class="label">Please enter the Distributor ID and Sequence Number retrieved using the NEUROtechnology License Activation Wizard</label>
+  </div>
+ 
+  <div appFlex basis="100">
+    <mat-form-field appearance="outline" appGrow>
+      <mat-label>Distributor ID</mat-label>
+      <input (change)="DisOrSeqChange($event)" type="number" matInput formControlName="DistributorID">
+    </mat-form-field>
+    <mat-form-field appearance="outline" appGrow>
+      <mat-label>Sequence Number</mat-label>
+      <input (change)="DisOrSeqChange($event)" type="number" matInput formControlName="SequenceNumber">
+    </mat-form-field>
+    <mat-checkbox formControlName="DisSeqCheckBox" (change)="seqKeyChange($event)">No Distributor/Sequence Number</mat-checkbox>
+  </div>
+  <label class="label" style="font-weight: bold;">OR</label>
+  <div appFlex basis="100">
+    <mat-checkbox class="label" formControlName="License" (change)="isChecked($event)">No License to Recover
+    </mat-checkbox>
+  </div>
+  <div  *ngIf="showLink" >
+    <app-buttons>
+      <button mat-raised-button (click)="onDownload()" color="primary">Download License File</button>
+      <button *ngIf="showVerifyButton" mat-raised-button (click)="onVerify()" color="primary">Verify License File</button>
+    </app-buttons>
+  </div>
+  <app-buttons>
+    <button mat-raised-button [disabled]="!form.valid " (click)="onSubmit()" color="primary">
+      submit
+    </button>
+  </app-buttons>
+
+</section>
